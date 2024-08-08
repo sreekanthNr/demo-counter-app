@@ -1,7 +1,5 @@
-FROM tomcat:8.0-alpine
+FROM anapsix/alpine-java
+MAINTAINER sreekanth
+COPY springboot-1.0.0.jar  /home/springboot-1.0.0.jar 
+CMD ["java","-jar","/home/springboot-1.0.0.jar "]
 
-LABEL maintainer=”deepak@softwareyoga.com”
-
-ADD springboot-1.0.0.jar /usr/local/tomcat/webapps/
-
-EXPOSE 8080
