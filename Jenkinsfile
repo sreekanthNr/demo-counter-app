@@ -14,6 +14,18 @@ pipeline{
        sh 'mvn package'
      }
    }
+   stage('SonarQube Analysis') {
+     steps {
+          script {
+            // Set SonarQube environment
+                withSonarQubeEnv('SonarQube') { // 'SonarQube' is the name of the configured SonarQube server
+                        // Run SonarQube analysis
+                  sh 'mvn sonar:sonar -Dsonar.projectKey=my-project -Dsonar.login=${env.squ_66669c2c23d45836207ec463d36131b3a36ea70d}'
+                }
+          } 
+     }
+   }
+        
   }
 }
   
