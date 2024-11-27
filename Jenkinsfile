@@ -3,7 +3,7 @@ pipeline{
   tools{
     maven 'mvn'
   }
-  stages
+  stages{
    stage('scm'){
      steps{
        echo 'scm'
