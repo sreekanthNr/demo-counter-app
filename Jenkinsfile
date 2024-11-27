@@ -9,6 +9,11 @@ pipeline{
        echo 'scm'
      }
    }
+   stage('package'){
+     steps{
+       sh 'mvn package'
+     }
+   }
   }
 }
   
