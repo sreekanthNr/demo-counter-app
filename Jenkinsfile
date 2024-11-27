@@ -3,6 +3,10 @@ pipeline{
   tools{
     maven 'mvn'
   }
+  environment {
+        SONAR_HOST_URL = 'http://34.134.134.232:9000'  // Update to your SonarQube URL
+        SONAR_AUTH_TOKEN = credentials('env.squ_66669c2c23d45836207ec463d36131b3a36ea70d') // Jenkins credential ID
+  }
   stages{
    stage('scm'){
      steps{
@@ -22,8 +26,8 @@ pipeline{
                         // Run SonarQube analysis
                   mvn sonar:sonar \
                     -Dsonar.projectKey=my-project \
-                    -Dsonar.host.url=http://34.134.134.232:9000 \
-                    -Dsonar.login=${env.squ_66669c2c23d45836207ec463d36131b3a36ea70d}
+                    -Dsonar.host.url=${SONAR_HOST_URL} \
+                    -Dsonar.login=${SONAR_AUTH_TOKEN}
                   
                 }
           } 
