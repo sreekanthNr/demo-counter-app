@@ -24,11 +24,12 @@ pipeline{
             // Set SonarQube environment
                 withSonarQubeEnv('sonarqube') { // 'SonarQube' is the name of the configured SonarQube server
                         // Run SonarQube analysis
-                  mvn sonar:sonar \
-                    -Dsonar.projectKey=my-project \
-                    -Dsonar.host.url=${SONAR_HOST_URL} \
-                    -Dsonar.login=${SONAR_AUTH_TOKEN}
-                  
+                   sh """
+                      mvn sonar:sonar \
+                     -Dsonar.projectKey=my-project \
+                     -Dsonar.host.url=${SONAR_HOST_URL} \
+                     -Dsonar.login=${SONAR_AUTH_TOKEN}'
+                   """             
                 }
           } 
      }
