@@ -20,7 +20,11 @@ pipeline{
             // Set SonarQube environment
                 withSonarQubeEnv('sonarqube') { // 'SonarQube' is the name of the configured SonarQube server
                         // Run SonarQube analysis
-                  sh 'mvn sonar:sonar -Dsonar.projectKey=my-project -Dsonar.login=${env.squ_66669c2c23d45836207ec463d36131b3a36ea70d}'
+                  mvn sonar:sonar \
+                    -Dsonar.projectKey=my-project \
+                    -Dsonar.host.url=http://34.134.134.232:9000 \
+                    -Dsonar.login=${env.squ_66669c2c23d45836207ec463d36131b3a36ea70d}
+                  
                 }
           } 
      }
