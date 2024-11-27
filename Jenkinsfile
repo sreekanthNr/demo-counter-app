@@ -23,8 +23,7 @@ pipeline{
           script {
             // Set SonarQube environment
                 withSonarQubeEnv('sonarqube') { // 'SonarQube' is the name of the configured SonarQube server
-                        // Run SonarQube analysis
-                    sh 'mvn sonar:sonar'         
+                      sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=my-project'        
                 }
           } 
      }
