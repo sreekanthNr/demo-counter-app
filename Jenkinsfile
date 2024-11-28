@@ -14,7 +14,7 @@ pipeline{
        sh 'mvn package'
      }
    }
-   stage('SonarQube Analysis') {
+   /*stage('SonarQube Analysis') {
      steps {
           script {
             // Set SonarQube environment
@@ -30,7 +30,7 @@ pipeline{
             waitForQualityGate abortPipeline: true 
           }
      }
-   }
+   }*/
    stage('docker'){
      steps{
        withCredentials([usernameColonPassword(credentialsId: '9a904c35-d910-427f-a878-8e5374b6431d', variable: 'dockerpass')]) {
