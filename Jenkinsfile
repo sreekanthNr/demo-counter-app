@@ -37,6 +37,9 @@ pipeline{
          sh 'sudo docker build -t sreekanth143/java-web-app-docker:demoone .'
          sh 'sudo docker push sreekanth143/java-web-app-docker:demoone'
        }
+     }
+   }
+     
        
   }
 }
