@@ -14,23 +14,7 @@ pipeline{
        sh 'mvn package'
      }
    }
-   /*stage('SonarQube Analysis') {
-     steps {
-          script {
-            // Set SonarQube environment
-                withSonarQubeEnv('sonarqube') { // 'SonarQube' is the name of the configured SonarQube server
-                      sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=my-project'        
-                }
-          } 
-     }
-   }
-   stage("Quality Gate") {
-     steps {
-          timeout(time: 1, unit: 'HOURS') {
-            waitForQualityGate abortPipeline: true 
-          }
-     }
-   }*/
+   
    stage('docker'){
      steps{
        withCredentials([usernameColonPassword(credentialsId: '9a904c35-d910-427f-a878-8e5374b6431d', variable: 'dockerpass')]) {
