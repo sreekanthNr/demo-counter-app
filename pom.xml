@@ -50,3 +50,31 @@
 	</build>
 
 </project>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0.0</version>
+  <distributionManagement>
+    <repository>
+      <id>releases</id>
+      <url>http://34.134.134.232:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>http://34.134.134.232:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <site>
+      <id>site</id>
+      <url>http://34.134.134.232:8081/repository/site/</url>
+    </site>
+    <downloadUrl>http://nexus-host:8081/repository/releases/</downloadUrl>
+    <relocation>
+      <groupId>com.new.example</groupId>
+      <artifactId>my-new-app</artifactId>
+      <version>2.0.0</version>
+      <message>Use com.new.example:my-new-app:2.0.0 instead.</message>
+    </relocation>
+  </distributionManagement>
+</project>
+
