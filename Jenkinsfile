@@ -17,9 +17,8 @@ pipeline{
    
    stage('docker'){
      steps{
-       withCredentials([usernameColonPassword(credentialsId: '9a904c35-d910-427f-a878-8e5374b6431d', variable: 'dockerpass')]) {
-         sh 'sudo docker build -t sreekanth143/java-web-app-docker:demoone .'
-         sh 'sudo docker push sreekanth143/java-web-app-docker:demoone'
+       withMaven(globalMavenSettingsConfig: '', jdk: 'jdk', maven: 'mvn', mavenSettingsConfig: '9a5c50eb-5f67-4990-8334-9b7bb9b0170c', traceability: true) {
+                 sh 'mvn deploy'
        }
      }
    }
